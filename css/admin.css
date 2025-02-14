@@ -1,0 +1,147 @@
+/* Overall Page Layout */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    background-color: #a9afb1;
+    position: relative; /* Needed for absolute positioning of child elements */
+}
+
+/* Top Navigation Bar Styling (Fixed at the top) */
+.navBar {
+    background-color: blue;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed; /* Fix the navbar to the top */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    z-index: 1000; /* Ensure it stays above other elements */
+    box-sizing: border-box; /* To account for padding in full width */
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* InfoBar Styling (Fixed below the Navbar) */
+.infoBar {
+    background-color: white;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed; /* Fix the infobar to the top */
+    top: 90px; /* Position directly below navbar */
+    left: 0;
+    width: 100%; /* Full width */
+    height: 40px;
+    z-index: 999; /* Below navbar but above the main content */
+    box-sizing: border-box;
+}
+
+/* Remove Bold from InfoBar Text */
+.infoBar h2 {
+    font-weight: normal;
+    font-size: 15px;
+    margin: 0;
+    color: black;
+    margin: 20px;
+}
+
+.infoBar a {
+    text-decoration: none;  /* Remove underline */
+    color: black;           /* Set the text color to black */
+}
+
+/* Company Name Styling */
+.companyNAme h1 {
+    margin: 0;
+    font-size: 24px;
+    padding-left: 25px; /* Remove padding on the left */
+}
+.firstLine {
+    font-weight: bold;
+}
+
+.secondLine {
+    font-style: italic;
+}
+
+/* Sidebar Styling (Fixed on the left) */
+.sideBar {
+    width: 220px;
+    text-align: center;
+    height: 100vh; /* Full screen height */
+    background-color: blue;
+    position: fixed; /* Fixed positioning for sidebar */
+    top: 135px; /* Position below navbar and infobar */
+    left: 0;
+    z-index: 998; /* Ensure it stays below navbar and infobar */
+    box-sizing: border-box;
+}
+
+/* Sidebar Navigation Styling */
+.sideBar nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sideBar nav ul li {
+    margin-bottom: 20px;
+}
+
+.sideBar nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    padding: 1px 3px;
+    display: block;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+/* Hover Effect for Sidebar Links */
+.sideBar nav ul li a:hover {
+    background-color: #548aee;
+    color: white;
+}
+
+/* Main Content Styling */
+.mainContent {
+    margin-left: 250px; /* Leave space for the sidebar */
+    margin-top: 140px; /* Leave space for navbar and infobar */
+    padding: 20px;
+    flex: 1;
+}
+
+/* Media Query for Responsiveness */
+@media screen and (max-width: 768px) {
+    .navBar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .sideBar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 10px;
+    }
+
+    .sideBar nav ul {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .sideBar nav ul li {
+        margin-bottom: 0;
+    }
+
+    .mainContent {
+        margin-left: 0;
+        margin-top: 100px; /* Adjust margin for mobile */
+    }
+}
